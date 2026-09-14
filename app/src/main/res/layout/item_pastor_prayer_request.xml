@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/spacing_medium"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardElevation="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_card"
+        android:padding="@dimen/spacing_medium">
+
+        <TextView
+            android:id="@+id/tvMemberName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Siphamandla Tshabalala"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_body"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/ivConfidential"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivConfidential"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_lock"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/tvMemberName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvMemberName" />
+
+        <TextView
+            android:id="@+id/tvPrayerPreview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Please pray for my grandmother who is recovering from surgery. We are trusting God for a full and speedy recovery."
+            android:textColor="@color/grey_dark"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMemberName" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:text="14 Oct 2024"
+            android:textColor="@color/grey_dark"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPrayerPreview" />
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_status_pending"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="2dp"
+            android:text="New"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tvDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvDate" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

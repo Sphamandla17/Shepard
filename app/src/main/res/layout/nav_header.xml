@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:background="@color/white"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_large">
+
+    <ImageView
+        android:id="@+id/ivProfileImage"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@color/grey_light"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_profile" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:text="Siphamandla Tshabalala"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_h2"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Church Member"
+        android:textColor="@color/grey_dark"
+        android:textSize="@dimen/text_size_small" />
+
+</LinearLayout>

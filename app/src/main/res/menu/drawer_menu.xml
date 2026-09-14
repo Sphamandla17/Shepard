@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_announcements"
+            android:icon="@drawable/ic_announcements"
+            android:title="Announcements" />
+        <item
+            android:id="@+id/nav_events"
+            android:icon="@drawable/ic_events"
+            android:title="Events" />
+        <item
+            android:id="@+id/nav_prayer"
+            android:icon="@drawable/ic_prayer"
+            android:title="Prayer Requests" />
+        <item
+            android:id="@+id/nav_bible"
+            android:icon="@drawable/ic_bible"
+            android:title="Bible" />
+        <item
+            android:id="@+id/nav_notifications"
+            android:icon="@drawable/ic_notifications"
+            android:title="Notifications" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="Settings" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="Log Out" />
+    </group>
+</menu>

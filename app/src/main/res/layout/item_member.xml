@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/spacing_small"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardElevation="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_card"
+        android:padding="@dimen/spacing_medium">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvMemberImage"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/grey_light"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_profile" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvMemberName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_medium"
+            android:text="Member Name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_body"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/ivArrow"
+            app:layout_constraintStart_toEndOf="@id/cvMemberImage"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvMemberRole"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Church Member"
+            android:textColor="@color/grey_dark"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@id/ivArrow"
+            app:layout_constraintStart_toStartOf="@id/tvMemberName"
+            app:layout_constraintTop_toBottomOf="@id/tvMemberName" />
+
+        <ImageView
+            android:id="@+id/ivArrow"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_chevron_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

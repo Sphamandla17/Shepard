@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/grey_light"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:visibility="gone">
+
+    <ImageView
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@drawable/ic_notifications"
+        android:tint="@color/grey_dark" />
+
+    <TextView
+        android:id="@+id/tvOfflineStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Offline Mode — Showing saved content"
+        android:textColor="@color/grey_dark"
+        android:textSize="12sp" />
+
+</LinearLayout>
