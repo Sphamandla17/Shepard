@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,7 +10,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="56dp"
         android:background="@color/white"
         android:elevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,12 +19,16 @@
 
         <ImageButton
             android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/back"
+            android:padding="12dp"
             android:src="@drawable/ic_back" />
 
     </androidx.appcompat.widget.Toolbar>
+
 
     <ScrollView
         android:layout_width="0dp"
@@ -76,10 +82,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/spacing_small"
-                        android:text="Sunday, 20 October 2024"
+                        android:text="Sunday, 20 October 2026"
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_size_body" />
+
                 </LinearLayout>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -102,7 +110,9 @@
                         android:text="09:00 AM - 11:30 AM"
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_size_body" />
+
                 </LinearLayout>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -122,10 +132,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/spacing_small"
-                        android:text="Main Sanctuary, Shepherd Church"
+                        android:text="Main Sanctuary, AUNBC"
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_size_body" />
+
                 </LinearLayout>
+
 
                 <TextView
                     android:layout_width="match_parent"
@@ -136,19 +148,23 @@
                     android:textSize="@dimen/text_size_h2"
                     android:textStyle="bold" />
 
+
                 <TextView
                     android:id="@+id/tvEventDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_small"
                     android:lineSpacingExtra="4dp"
-                    android:text="Join us for our main Sunday Morning Service as we gather together to worship, pray, and hear an inspiring message. \n\nThis service is open to all members of the community. We have special programmes for children and youth running concurrently. \n\nCome early for coffee and fellowship in the foyer starting at 08:30 AM."
+                    android:text="Join us for our main Sunday Morning Service as we gather together to worship, pray, and hear an inspiring message."
                     android:textColor="@color/grey_dark"
                     android:textSize="@dimen/text_size_body" />
 
             </LinearLayout>
+
         </LinearLayout>
+
     </ScrollView>
+
 
     <Button
         android:id="@+id/btnRegister"

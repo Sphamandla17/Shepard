@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1086240196864",
+    "project_id": "shepherd-84fdd",
+    "storage_bucket": "shepherd-84fdd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1086240196864:android:bbd404b55df72402f54be5",
+        "android_client_info": {
+          "package_name": "com.example.shepherd"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD37-1Zxg2eQqR-fR5lvjD46uq-pcGITII"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

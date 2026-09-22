@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,29 +18,26 @@
 
         <ImageButton
             android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/back"
+            android:padding="12dp"
             android:src="@drawable/ic_back" />
 
         <TextView
+            android:id="@+id/tvBibleTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Daily Bible"
+            android:text="John 3"
             android:textColor="@color/black"
             android:textSize="@dimen/text_size_h2"
             android:textStyle="bold" />
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginEnd="@dimen/spacing_medium"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_search" />
-
     </androidx.appcompat.widget.Toolbar>
+
 
     <ScrollView
         android:layout_width="0dp"
@@ -53,6 +52,9 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/spacing_large">
+
+
+            <!-- DAILY VERSE -->
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -76,41 +78,55 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tvDailyVerse"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_medium"
                         android:lineSpacingExtra="4dp"
-                        android:text="&quot;Thy word is a lamp unto my feet, and a light unto my path.&quot;"
+                        android:text="Loading..."
                         android:textColor="@color/black"
-                        android:textSize="22sp"
+                        android:textSize="20sp"
                         android:textStyle="italic" />
 
                     <TextView
+                        android:id="@+id/tvDailyReference"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_medium"
-                        android:text="Psalm 119:105"
+                        android:text="John 3:16"
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_size_body"
                         android:textStyle="bold" />
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
+
+            <!-- CHAPTER -->
+
             <TextView
+                android:id="@+id/tvChapterHeading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_xlarge"
-                android:text="PREVIOUSLY VIEWED"
-                android:textColor="@color/grey_dark"
-                android:textSize="12sp"
+                android:text="John 3"
+                android:textColor="@color/black"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvPreviousVerses"
+
+            <!-- API VERSES -->
+
+            <LinearLayout
+                android:id="@+id/llVerses"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_medium"
-                android:nestedScrollingEnabled="false" />
+                android:orientation="vertical" />
+
+
+            <!-- OFFLINE MESSAGE -->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -132,9 +148,11 @@
                     android:text="Bible content is available offline once loaded."
                     android:textColor="@color/grey_dark"
                     android:textSize="12sp" />
+
             </LinearLayout>
 
         </LinearLayout>
+
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

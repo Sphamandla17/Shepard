@@ -1,47 +1,52 @@
 package com.example.shepherd
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.shepherd.ui.theme.ShepherdTheme
 
 class MainActivity : ComponentActivity() {
+
+    private val splashDelay = 2000L
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            ShepherdTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+
+        setContentView(R.layout.activity_main)
+
+        Handler(Looper.getMainLooper()).postDelayed({
+
+            val savedLanguage = LanguageHelper.getSavedLanguage(this)
+
+            if (savedLanguage.isEmpty()) {
+
+                // No language has been selected yet
+                val intent = Intent(
+                    this@MainActivity,
+                    LanguageSelectionActivity::class.java
+                )
+
+                startActivity(intent)
+
+            } else {
+
+                // A language was already selected
+                LanguageHelper.setLanguage(
+                    this,
+                    savedLanguage
+                )
+
+                val intent = Intent(
+                    this@MainActivity,
+                    WelcomeActivity::class.java
+                )
+
+                startActivity(intent)
             }
-        }
-    }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+            finish()
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ShepherdTheme {
-        Greeting("Android")
+        }, splashDelay)
     }
 }

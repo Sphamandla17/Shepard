@@ -1,34 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
+    <!-- TOOLBAR -->
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="56dp"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/back"
+            android:padding="12dp"
+            android:src="@drawable/ic_back" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="My Profile"
+            android:text="@string/profile_title"
             android:textColor="@color/black"
             android:textSize="@dimen/text_size_h2"
             android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
 
+
+    <!-- PROFILE CONTENT -->
+
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar">
@@ -39,6 +56,8 @@
             android:gravity="center_horizontal"
             android:orientation="vertical"
             android:padding="@dimen/spacing_large">
+
+            <!-- PROFILE IMAGE -->
 
             <androidx.cardview.widget.CardView
                 android:layout_width="100dp"
@@ -52,44 +71,145 @@
                     android:background="@color/grey_light"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_profile" />
+
             </androidx.cardview.widget.CardView>
 
+
+            <!-- FIRST NAME -->
+
             <TextView
+                android:id="@+id/tvFirstName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_medium"
-                android:text="Siphamandla Tshabalala"
+                android:text="First Name"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size_h1"
                 android:textStyle="bold" />
 
+
+            <!-- LAST NAME -->
+
             <TextView
+                android:id="@+id/tvLastName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Church Member"
-                android:textColor="@color/grey_dark"
-                android:textSize="@dimen/text_size_body" />
+                android:layout_marginTop="2dp"
+                android:text="Last Name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_h1"
+                android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/btnEditProfile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_large"
-                android:background="@drawable/bg_button_secondary"
-                android:paddingHorizontal="@dimen/spacing_xlarge"
-                android:text="Edit Profile"
-                android:textAllCaps="false"
-                android:textColor="@color/black" />
 
-            <!-- Personal Information -->
+            <!-- PERSONAL INFORMATION -->
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_xlarge"
-                android:text="PERSONAL INFORMATION"
+                android:text="@string/personal_info_header"
                 android:textColor="@color/grey_dark"
                 android:textSize="12sp"
                 android:textStyle="bold" />
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_small"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_medium">
+
+                    <!-- EMAIL -->
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/email"
+                        android:textColor="@color/grey_dark"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Email address"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_body" />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/spacing_small"
+                        android:background="@color/border_light" />
+
+
+                    <!-- PHONE -->
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/phone_number"
+                        android:textColor="@color/grey_dark"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Phone number"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_body" />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/spacing_small"
+                        android:background="@color/border_light" />
+
+
+                    <!-- LANGUAGE -->
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/language"
+                        android:textColor="@color/grey_dark"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvLanguage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/english"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_body" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- ACCOUNT INFORMATION -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xlarge"
+                android:text="@string/account_details_header"
+                android:textColor="@color/grey_dark"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -108,49 +228,34 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Email"
+                        android:text="@string/account_role"
                         android:textColor="@color/grey_dark"
                         android:textSize="12sp" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="siphamandla@example.com"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/text_size_body" />
-
-                    <View
+                        android:id="@+id/tvRole"
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginVertical="@dimen/spacing_small"
-                        android:background="@color/border_light" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Phone Number"
-                        android:textColor="@color/grey_dark"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="+27 81 234 5678"
+                        android:text="@string/church_member"
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_size_body" />
 
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
-            <!-- Options -->
+
+            <!-- OPTIONS -->
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_xlarge"
-                android:text="OPTIONS"
+                android:text="@string/options_header"
                 android:textColor="@color/grey_dark"
                 android:textSize="12sp"
                 android:textStyle="bold" />
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -165,10 +270,13 @@
                     android:background="@drawable/bg_card"
                     android:orientation="vertical">
 
+                    <!-- SETTINGS -->
+
                     <LinearLayout
+                        android:id="@+id/rowSettings"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="?attr/selectableItemBackground"
+                        android:background="@android:color/transparent"
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center_vertical"
@@ -184,7 +292,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/spacing_medium"
                             android:layout_weight="1"
-                            android:text="Settings"
+                            android:text="@string/settings"
                             android:textColor="@color/black"
                             android:textSize="@dimen/text_size_body" />
 
@@ -192,17 +300,23 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:src="@drawable/ic_chevron_right" />
+
                     </LinearLayout>
+
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@color/border_light" />
 
+
+                    <!-- LOGOUT -->
+
                     <LinearLayout
+                        android:id="@+id/rowLogout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="?attr/selectableItemBackground"
+                        android:background="@android:color/transparent"
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center_vertical"
@@ -218,7 +332,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/spacing_medium"
                             android:layout_weight="1"
-                            android:text="Log Out"
+                            android:text="@string/log_out"
                             android:textColor="@color/black"
                             android:textSize="@dimen/text_size_body" />
 
@@ -226,22 +340,15 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:src="@drawable/ic_chevron_right" />
+
                     </LinearLayout>
 
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>
-    </ScrollView>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        app:itemIconTint="@color/black"
-        app:itemTextColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

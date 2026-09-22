@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
+    <!-- TOOLBAR -->
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="56dp"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -16,9 +20,12 @@
 
         <ImageButton
             android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/back"
+            android:padding="12dp"
             android:src="@drawable/ic_back" />
 
         <TextView
@@ -31,6 +38,9 @@
             android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
+
+
+    <!-- FORM -->
 
     <ScrollView
         android:layout_width="0dp"
@@ -46,6 +56,8 @@
             android:gravity="center_horizontal"
             android:orientation="vertical"
             android:padding="@dimen/spacing_large">
+
+            <!-- PROFILE IMAGE -->
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
@@ -66,6 +78,7 @@
                         android:background="@color/grey_light"
                         android:scaleType="centerCrop"
                         android:src="@drawable/ic_profile" />
+
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
@@ -83,8 +96,13 @@
                         android:padding="8dp"
                         android:src="@drawable/ic_edit"
                         app:tint="@color/white" />
+
                 </androidx.cardview.widget.CardView>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!-- FIRST NAME -->
 
             <EditText
                 android:id="@+id/etFirstName"
@@ -96,6 +114,9 @@
                 android:inputType="textPersonName"
                 android:text="Siphamandla" />
 
+
+            <!-- LAST NAME -->
+
             <EditText
                 android:id="@+id/etLastName"
                 android:layout_width="match_parent"
@@ -105,6 +126,9 @@
                 android:hint="Last Name"
                 android:inputType="textPersonName"
                 android:text="Tshabalala" />
+
+
+            <!-- EMAIL -->
 
             <EditText
                 android:id="@+id/etEmail"
@@ -116,6 +140,9 @@
                 android:inputType="textEmailAddress"
                 android:text="siphamandla@example.com" />
 
+
+            <!-- PHONE -->
+
             <EditText
                 android:id="@+id/etPhone"
                 android:layout_width="match_parent"
@@ -125,6 +152,9 @@
                 android:hint="Phone Number"
                 android:inputType="phone"
                 android:text="+27 81 234 5678" />
+
+
+            <!-- CHURCH ROLE -->
 
             <EditText
                 android:id="@+id/etChurchRole"
@@ -137,7 +167,11 @@
                 android:text="Church Member" />
 
         </LinearLayout>
+
     </ScrollView>
+
+
+    <!-- SAVE BUTTON -->
 
     <Button
         android:id="@+id/btnSave"

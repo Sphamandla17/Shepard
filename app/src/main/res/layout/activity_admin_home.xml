@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#FFFFFF">
+
+    ```
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_admin"
+        android:textColor="#000000"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="30dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/the_shepherd_administration"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_marginBottom="40dp" />
+
+    <Button
+        android:id="@+id/btnManageMembers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/manage_church_members"
+        android:textAllCaps="false"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnManageEvents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/manage_events"
+        android:textAllCaps="false"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnCreateEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/create_event"
+        android:textAllCaps="false"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnNotifications"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/send_notifications"
+        android:textAllCaps="false"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/profile_title"
+        android:textAllCaps="false"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settings"
+        android:textAllCaps="false" />
+    ```
+
+</LinearLayout>

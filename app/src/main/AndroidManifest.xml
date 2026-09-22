@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Internet access -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,17 +14,177 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Shepherd">
+
+        <!-- ========================= -->
+        <!-- MAIN / STARTUP -->
+        <!-- ========================= -->
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Shepherd">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
+
+        <!-- ========================= -->
+        <!-- AUTHENTICATION -->
+        <!-- ========================= -->
+
+        <activity
+            android:name=".LanguageSelectionActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".WelcomeActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+
+
+        <!-- ========================= -->
+        <!-- MEMBER -->
+        <!-- ========================= -->
+
+        <activity
+            android:name=".MemberHomeActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".BibleActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".PrayerRequestsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".SubmitPrayerActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".PrayerRequestFormActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ProfileEditActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".QrCheckinActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".QrCodeActivity"
+            android:exported="false" />
+
+
+        <!-- ========================= -->
+        <!-- EVENTS -->
+        <!-- ========================= -->
+
+        <activity
+            android:name=".EventsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".EventDetailsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".EventRegistrationActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".CreateEventActivity"
+            android:exported="false" />
+
+
+        <!-- ========================= -->
+        <!-- ADMIN -->
+        <!-- ========================= -->
+
+        <activity
+            android:name=".AdminHomeActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".AdminMembersActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".AdminNotificationsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".AdminEventsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".AdminEventRegistrationsActivity"
+            android:exported="false" />
+
+
+        <!-- ========================= -->
+        <!-- PASTOR -->
+        <!-- ========================= -->
+
+        <activity
+            android:name=".PastorHomeActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".PastorPrayerRequestsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".PastorPrayerDetailsActivity"
+            android:exported="false" />
+
+
+        <!-- ========================= -->
+        <!-- NOTIFICATIONS -->
+        <!-- ========================= -->
+
+        <activity
+            android:name=".NotificationsActivity"
+            android:exported="false" />
+
+
+        <!-- ========================= -->
+        <!-- FIREBASE CLOUD MESSAGING -->
+        <!-- ========================= -->
+
+        <service
+            android:name=".ShepherdFirebaseMessagingService"
+            android:exported="false">
+
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+
+        </service>
+
     </application>
 
 </manifest>

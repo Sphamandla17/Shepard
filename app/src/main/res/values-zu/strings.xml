@@ -1,129 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">Shepherd</string>
-    <string name="app_name_upper">SHEPHERD</string>
-    <string name="tagline">"UNkulunkulu Oluthando."</string>
 
-    <!-- Language Selection Screen -->
-    <string name="choose_language">Khetha Ulimi Lwakho</string>
-    <string name="select_language_subtitle">Sicela ukhethe ulimi oluthandayo</string>
+<resources>
+
+    ```
+    <!-- APP -->
+    <string name="app_name">The Shepherd</string>
+    <string name="tagline">UNkulunkulu Uluthando</string>
+
+    <!-- LANGUAGE SELECTION -->
+    <string name="church_logo_desc">Uphawu lwebandla</string>
+    <string name="choose_language">Khetha Ulimi</string>
+    <string name="khetha_ulimi">Khetha Ulimi</string>
+    <string name="select_language_subtitle">Khetha ulimi oluthandayo</string>
+    <string name="sicela_ukhethe_subtitle">Sicela ukhethe ulimi oluthandayo</string>
     <string name="continue_text">Qhubeka</string>
     <string name="english">IsiNgisi</string>
     <string name="isizulu">isiZulu</string>
+    <string name="choose_language_dialog">Khetha Ulimi</string>
+    <string name="language_updated">Ulimi lubuyekezwe ngempumelelo</string>
+    <string name="cancel">Khansela</string>
+    <string name="language_saved_profile_failed">Ulimi lugcinwe kule divayisi, kodwa iphrofayela yakho ayikwazanga ukubuyekezwa: %1$s</string>
 
-    <!-- Welcome Screen -->
-    <string name="stay_connected">Hlala Uxhumekile. Hlala Usekelwa.</string>
-    <string name="welcome_description">IShepherd ikusiza ukuthi uhlale uxhumene nebandla lakho ngemicimbi, izimemezelo, umthandazo nokunye okuningi.</string>
-    <string name="get_started">Qalisa</string>
-    <string name="already_have_account">Sengivele Nginayo I-akhawunti</string>
-
-    <!-- Login Screen -->
-    <string name="welcome_back">Wamkelekile Futhi</string>
+    <!-- LOGIN -->
+    <string name="welcome_back">Siyakwamukela Futhi</string>
     <string name="email_address">Ikheli Le-imeyili</string>
     <string name="password">Iphasiwedi</string>
     <string name="forgot_password">Ukhohlwe Iphasiwedi?</string>
     <string name="sign_in">Ngena</string>
     <string name="or_text">NOMA</string>
-    <string name="continue_with_google">Qhubeka ne-Google</string>
+    <string name="continue_with_google">Qhubeka nge-Google</string>
     <string name="dont_have_account">Awunayo i-akhawunti?</string>
-    <string name="create_account">Dala I-akhawunti</string>
 
-    <!-- Registration Screen -->
-    <string name="create_your_account">Dala I-akhawunti Yakho</string>
-    <string name="first_name">Igama</string>
-    <string name="last_name">Isibongo</string>
+    <!-- COMMON -->
+    <string name="back">Emuva</string>
+    <string name="settings">Izilungiselelo</string>
+    <string name="please_log_in_again">Sicela ungene futhi.</string>
+
+    <!-- ADMIN -->
+    <string name="manage_church_members">Phatha Amalungu Ebandla</string>
+    <string name="view_church_members">Buka Amalungu Ebandla</string>
+    <string name="send_notifications">Thumela Izaziso</string>
+    <string name="members_load_failed">Ayikwazanga ukulayisha amalungu: </string>
+
+    <!-- ADMIN EVENTS -->
+    <string name="manage_events">Phatha Imicimbi</string>
+    <string name="view_registrations">Buka Ukubhaliswa</string>
+    <string name="search_attendees">Sesha ababhalisile...</string>
+    <string name="no_registrations_found">Akukho okubhalisiwe okutholakele</string>
+    <string name="unknown_member">Ilungu Elingaziwa</string>
+    <string name="unable_load_member_details">Ayikwazanga ukulayisha imininingwane yelungu</string>
+    <string name="event_could_not_be_found">Umcimbi awutholakalanga</string>
+    <string name="failed_load_events">Ayikwazanga ukulayisha imicimbi</string>
+    <string name="failed_load_registrations">Ayikwazanga ukulayisha ukubhaliswa</string>
+
+    <!-- ADMIN NOTIFICATIONS -->
+    <string name="admin_notification_description">Dala futhi uthumele isaziso kumalungu ebandla.</string>
+    <string name="notification_english_section">Isaziso sesiNgisi</string>
+    <string name="notification_english_title_hint">Isihloko sesaziso sesiNgisi</string>
+    <string name="notification_english_message_hint">Umlayezo wesaziso sesiNgisi</string>
+    <string name="notification_isizulu_section">Isaziso sesiZulu</string>
+    <string name="notification_isizulu_title_hint">Isihloko sesaziso sesiZulu</string>
+    <string name="notification_isizulu_message_hint">Umlayezo wesaziso sesiZulu</string>
+    <string name="send_notification">Thumela Isaziso</string>
+
+    <!-- CREATE EVENT -->
+    <string name="create_event">Dala Umcimbi</string>
+    <string name="event_title">Isihloko Somcimbi</string>
+    <string name="event_description">Incazelo Yomcimbi</string>
+    <string name="event_date">Usuku Lomcimbi</string>
+    <string name="event_time">Isikhathi Somcimbi</string>
+    <string name="event_location">Indawo Yomcimbi</string>
+    <string name="event_max_capacity">Inani Eliphezulu Labantu</string>
+    <string name="event_published_successfully">Umcimbi ushicilelwe ngempumelelo</string>
+    <string name="failed_publish_event">Ukushicilela umcimbi kuhlulekile</string>
+    <string name="enter_event_title">Sicela ufake isihloko somcimbi</string>
+    <string name="enter_event_description">Sicela ufake incazelo yomcimbi</string>
+    <string name="select_event_date">Sicela ukhethe usuku lomcimbi</string>
+    <string name="select_event_time">Sicela ukhethe isikhathi somcimbi</string>
+    <string name="enter_event_location">Sicela ufake indawo yomcimbi</string>
+    <string name="enter_max_capacity">Sicela ufake inani eliphezulu labantu</string>
+    <string name="valid_capacity">Faka inani elivumelekile</string>
+    <string name="upload_event_image">Layisha Isithombe Somcimbi</string>
+    <string name="publish">Shicilela</string>
+
+    <!-- ADMIN EVENT REGISTRATIONS -->
+    <string name="event_registrations">Ukubhaliswa Kwemicimbi</string>
+    <string name="event_name">Igama Lomcimbi</string>
+
+    <!-- ADMIN DASHBOARD -->
+    <string name="welcome_admin">Siyakwamukela, Admin</string>
+    <string name="the_shepherd_administration">Ukuphathwa Kwe-The Shepherd</string>
+
+    <!-- MEMBER -->
+    <string name="welcome">Siyakwamukela</string>
+    <string name="welcome_to_shepherd">Siyakwamukela ku-The Shepherd</string>
+    <string name="prayer_requests">Izicelo Zomthandazo</string>
+    <string name="events">Imicimbi</string>
+    <string name="notifications">Izaziso</string>
+    <string name="qr_church_checkin">Ukungena Ebandleni nge-QR</string>
+    <string name="my_profile">Iphrofayela Yami</string>
+
+    <!-- PASTOR -->
+    <string name="pastor_dashboard">Ideshibhodi Yomfundisi</string>
+    <string name="welcome_pastor">Siyakwamukela, Mfundisi</string>
+    <string name="view_members">Buka Amalungu</string>
+    <string name="pastor_prayer_requests_description">Buka futhi uphathe izicelo zomthandazo ezithunyelwe amalungu ebandla.</string>
+
+    <!-- PRAYER REQUEST -->
+    <string name="prayer_request">Isicelo Somthandazo</string>
+    <string name="prayer_request_description">Thumela isicelo somthandazo bese wabelana ngalokho ofisa ukuba ibandla likukhulekele.</string>
+    <string name="prayer_category">Isigaba Somthandazo</string>
+    <string name="your_prayer_request">Isicelo Sakho Somthandazo</string>
+    <string name="prayer_request_hint">Bhala isicelo sakho somthandazo lapha...</string>
+    <string name="share_location">Yabelana Ngendawo</string>
+    <string name="share_location_description">Vumela ibandla ukuthi lazi indawo yakho lapho uthumela lesi sicelo somthandazo.</string>
+    <string name="submit_prayer_request">Thumela Isicelo Somthandazo</string>
+
+    <!-- PROFILE -->
+    <string name="profile_title">Iphrofayela Yami</string>
+    <string name="personal_info_header">IMINININGWANE YAKHO</string>
+    <string name="email">I-imeyili</string>
     <string name="phone_number">Inombolo Yocingo</string>
+    <string name="language">Ulimi</string>
+    <string name="account_details_header">IMINININGWANE YE-AKHAWUNTI</string>
+    <string name="account_role">Indima Ye-akhawunti</string>
+    <string name="church_member">Ilungu LeBandla</string>
+    <string name="options_header">IZINKETHO</string>
+    <string name="log_out">Phuma</string>
+
+    <!-- REGISTRATION -->
+    <string name="create_your_account">Dala I-akhawunti Yakho</string>
+    <string name="first_name">Igama Lokuqala</string>
+    <string name="last_name">Isibongo</string>
+    <string name="create_account">Dala I-akhawunti</string>
     <string name="confirm_password">Qinisekisa Iphasiwedi</string>
     <string name="create_account_btn">Dala I-akhawunti</string>
+    <string name="already_have_account_question">Usunayo i-akhawunti?</string>
 
-    <!-- Home Dashboard -->
-    <string name="greeting_member">Sawubona, Siphamandla</string>
-    <string name="welcome_message">Wamkelekile kwaShepherd</string>
-    <string name="daily_verse">IVESI LOSUKU</string>
-    <string name="announcements">Izimemezelo</string>
-    <string name="events">Imicimbi</string>
-    <string name="prayer_request">Isicelo Somthandazo</string>
-    <string name="my_profile">Iphrofayili Yami</string>
-    <string name="upcoming_event_label">UMCIMBI OZAYO</string>
-    <string name="latest_announcement_label">ISIMEMEZELO SAKUVAJE</string>
-    <string name="view_event">Buka Umcimbi</string>
-    <string name="read_more">Funda Kabanzi</string>
-
-    <!-- Navigation -->
-    <string name="nav_home">Ikhaya</string>
-    <string name="nav_announcements">Izimemezelo</string>
-    <string name="nav_events">Imicimbi</string>
-    <string name="nav_prayer">Izicelo Somthandazo</string>
-    <string name="nav_bible">IBhayibheli</string>
-    <string name="nav_notifications">Izaziso</string>
-    <string name="nav_settings">Izilungiselelo</string>
-    <string name="nav_logout">Phuma</string>
-    <string name="nav_dashboard">Ideshibhodi</string>
-    <string name="nav_registrations">Ukubhaliswa Kwemicimbi</string>
-    <string name="nav_members">Phatha Amalungu</string>
-    <string name="nav_qr">I-QR Check-In</string>
-
-    <!-- Pastor & Admin Dashboards -->
-    <string name="greeting_pastor">Sawubona, Mfundisi</string>
-    <string name="greeting_admin">Sawubona, Mlawuli</string>
-    <string name="prayer_requests_summary">Izicelo Ezintsha ezi-5</string>
-    <string name="members_seeking_support">Amalungu afuna ukusekelwa ngokomoya.</string>
-    <string name="view_requests">Buka Izicelo</string>
-    <string name="manage_announcements">Phatha Izimemezelo</string>
-    <string name="total_members">Inani Lamalungu</string>
-    <string name="upcoming_events_label">Imicimbi Ezayo</string>
-    <string name="event_registrations">Ukubhaliswa Kwemicimbi</string>
-    <string name="new_notifications">Izaziso Ezintsha</string>
-    <string name="quick_actions">IZENZO EZISHESHAYO</string>
-    <string name="recent_activity">UMSEBENZI WAKUVAJE</string>
-    <string name="qr_event_checkin">I-QR Event Check-In</string>
-    <string name="scan_qr_desc">Skena i-QR code yomcimbi welungu ukuze ulingenise.</string>
-    <string name="recent_checkins">IZENGENISO ZAKUVAJE</string>
-    <string name="attendance_status">Isimo Sokuba Khona</string>
-    <string name="member_info_header">ULWAZI LWELUNGU</string>
-    <string name="account_details_header">IMINININGWANE YE-AKHAWUNTI</string>
-
-    <!-- Prayer Features -->
-    <string name="submit_prayer">Thumela Isicelo Somthandazo</string>
-    <string name="prayer_requests_title">Izicelo Somthandazo</string>
-    <string name="prayer_requests_desc">Yabelana ngesicelo sakho somthandazo futhi uthole ukusekelwa ngokomoya.</string>
-    <string name="submit_a_prayer_request">Thumela Isicelo Somthandazo</string>
-    <string name="confidential_checkbox">Gcina lesi sicelo siyimfihlo</string>
-    <string name="confidential_explanation">Izicelo eziyimfihlo kwabelwana ngazo kuphela nethimba labafundisi futhi ngeke zibonakale emphakathini webandla.</string>
-    <string name="offline_status_placeholder">Ilondolozwe ungaxhunyiwe ku-inthanethi lapho kungekho uxhumano lwe-inthanethi.</string>
-    <string name="mark_under_prayer">Maka njengokuThandazelwayo</string>
-    <string name="mark_completed">Maka njengokuPhothuliwe</string>
-    <string name="current_status_label">ISIMO SAMANJE</string>
-
-    <!-- Bible -->
-    <string name="daily_bible">IBhayibheli Lansuku zonke</string>
-    <string name="previously_viewed">OKUBUKWE PHAMBILI</string>
-    <string name="bible_offline_msg">Okuqukethwe kweBhayibheli kuyatholakala ungaxhunyiwe ku-inthanethi uma sekulayishiwe.</string>
-
-    <!-- Profile & Settings -->
-    <string name="edit_profile">Hlela Iphrofayili</string>
-    <string name="personal_info_header">ULWAZI LWAKHO</string>
-    <string name="options_header">IZINKETHO</string>
-    <string name="notification_prefs">Izintandokazi Zezaziso</string>
+    <!-- SETTINGS -->
+    <string name="app_language">Ulimi Lohlelo</string>
+    <string name="notification_prefs">Izilungiselelo Zezaziso</string>
     <string name="privacy">Ubumfihlo</string>
-    <string name="help_support">Usizo Nokusekelwa</string>
-    <string name="about_shepherd">Mayelana ne-Shepherd</string>
-    <string name="app_language">Ulimi Lwe-App</string>
-    <string name="save_changes">Gcina Izinguquko</string>
-    <string name="church_role">Indima Ebandleni</string>
-    <string name="settings">Izilungiselelo</string>
-    <string name="log_out">Phuma</string>
-    <string name="version_text">Inguqulo 1.0.0</string>
+    <string name="help_support">Usizo Nokwesekwa</string>
+    <string name="about_shepherd">Mayelana Ne-The Shepherd</string>
+    <string name="version_text">Inguqulo 1.0</string>
 
-    <!-- Offline Banner -->
-    <string name="offline_mode_msg">Imodi Engaxhunyiwe ku-inthanethi — Ibonisa okulondoloziwe</string>
-    <string name="pending_sync">Ukuvumelanisa kusalindile</string>
-    <string name="last_updated">Igcine ukubuyekezwa: </string>
+    <!-- SPLASH -->
+    <string name="app_name_upper">THE SHEPHERD</string>
 
-    <!-- Common -->
-    <string name="search_hint">Sesha...</string>
-    <string name="publish">Shicilela</string>
-    <string name="confirm">Qinisekisa</string>
-    <string name="church_logo_desc">Ilogo Yebandla</string>
-    <string name="back">Emuva</string>
+    <!-- WELCOME -->
+    <string name="stay_connected">Hlala Uxhumekile</string>
+    <string name="welcome_description">Hlala uxhumekile nebandla lakho, thola izaziso ezibalulekile, joyina imicimbi, futhi ukhule ndawonye ekukholweni.</string>
+    <string name="get_started">Qala</string>
+    <string name="already_have_account">Usunayo i-akhawunti? Ngena</string>
+    ```
+
+    <string name="untitled_event">Umcimbi Ongenasihloko</string>
+    <string name="view_event">Buka Umcimbi</string>
+
+    <string name="upcoming_events">Imicimbi Ezayo</string>
+    <string name="view_upcoming_church_events">Buka imicimbi nemisebenzi yesonto ezayo.</string>
+    <string name="no_upcoming_events">Ayikho imicimbi ezayo</string>
+
+
+
 </resources>

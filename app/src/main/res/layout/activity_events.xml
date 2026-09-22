@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
+    ```
+    <!-- TOP BAR -->
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="56dp"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -16,30 +21,84 @@
 
         <ImageButton
             android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/back"
+            android:padding="12dp"
             android:src="@drawable/ic_back" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Upcoming Events"
+            android:text="@string/events"
             android:textColor="@color/black"
-            android:textSize="@dimen/text_size_h2"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvEvents"
+
+    <!-- EVENTS LIST -->
+
+    <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:padding="@dimen/spacing_medium"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_large">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/upcoming_events"
+                android:textColor="@color/black"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:text="@string/view_upcoming_church_events"
+                android:textColor="@color/grey_dark"
+                android:textSize="@dimen/text_size_body" />
+
+            <!-- FIRESTORE EVENTS WILL APPEAR HERE -->
+
+            <LinearLayout
+                android:id="@+id/eventsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:orientation="vertical" />
+
+            <!-- NO EVENTS MESSAGE -->
+
+            <TextView
+                android:id="@+id/tvNoEvents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/spacing_large"
+                android:text="@string/no_upcoming_events"
+                android:textColor="@color/grey_dark"
+                android:textSize="@dimen/text_size_body"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </ScrollView>
+    ```
 
 </androidx.constraintlayout.widget.ConstraintLayout>

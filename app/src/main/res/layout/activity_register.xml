@@ -11,112 +11,124 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/spacing_large">
 
+        <!-- BACK BUTTON -->
         <ImageButton
             android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/back"
+            android:padding="12dp"
             android:src="@drawable/ic_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- HEADING -->
         <TextView
             android:id="@+id/heading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_large"
-            android:text="Create Your Account"
+            android:text="@string/create_your_account"
             android:textColor="@color/black"
             android:textSize="@dimen/text_size_h1"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnBack" />
 
+        <!-- FIRST NAME -->
         <EditText
             android:id="@+id/etFirstName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_xlarge"
             android:background="@drawable/bg_edittext"
-            android:hint="First Name"
+            android:hint="@string/first_name"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/heading" />
 
+        <!-- LAST NAME -->
         <EditText
             android:id="@+id/etLastName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_medium"
             android:background="@drawable/bg_edittext"
-            android:hint="Last Name"
+            android:hint="@string/last_name"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etFirstName" />
 
+        <!-- EMAIL -->
         <EditText
             android:id="@+id/etEmail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_medium"
             android:background="@drawable/bg_edittext"
-            android:hint="Email Address"
+            android:hint="@string/email_address"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etLastName" />
 
+        <!-- PHONE -->
         <EditText
             android:id="@+id/etPhone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_medium"
             android:background="@drawable/bg_edittext"
-            android:hint="Phone Number"
+            android:hint="@string/phone_number"
             android:inputType="phone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etEmail" />
 
+        <!-- PASSWORD -->
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_medium"
             android:background="@drawable/bg_edittext"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etPhone" />
 
+        <!-- CONFIRM PASSWORD -->
         <EditText
             android:id="@+id/etConfirmPassword"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_medium"
             android:background="@drawable/bg_edittext"
-            android:hint="Confirm Password"
+            android:hint="@string/confirm_password"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etPassword" />
 
+        <!-- CREATE ACCOUNT BUTTON -->
         <Button
             android:id="@+id/btnCreateAccount"
             android:layout_width="0dp"
             android:layout_height="@dimen/button_height"
             android:layout_marginTop="@dimen/spacing_xlarge"
             android:background="@drawable/bg_button_primary"
-            android:text="Create Account"
+            android:text="@string/create_account_btn"
             android:textAllCaps="false"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etConfirmPassword" />
 
+        <!-- SIGN IN -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -132,17 +144,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Already have an account? "
+                android:text="@string/already_have_account_question"
                 android:textColor="@color/grey_dark" />
 
             <TextView
                 android:id="@+id/tvSignIn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sign In"
+                android:text="@string/sign_in"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
+
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </ScrollView>
+

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -13,30 +15,33 @@
         android:background="@drawable/bg_card"
         android:padding="@dimen/spacing_medium">
 
+        <!-- PRAYER REQUEST -->
         <TextView
             android:id="@+id/tvPrayerPreview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="3"
-            android:text="Please pray for my grandmother who is recovering from surgery. We are trusting God for a full and speedy recovery."
+            android:text="Please pray for my grandmother who is recovering from surgery."
             android:textColor="@color/black"
             android:textSize="@dimen/text_size_body"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- CATEGORY -->
         <TextView
             android:id="@+id/tvDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_small"
-            android:text="14 Oct 2024"
+            android:text="General"
             android:textColor="@color/grey_dark"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPrayerPreview" />
 
+        <!-- STATUS -->
         <TextView
             android:id="@+id/tvStatus"
             android:layout_width="wrap_content"
@@ -44,7 +49,7 @@
             android:background="@drawable/bg_status_pending"
             android:paddingHorizontal="8dp"
             android:paddingVertical="2dp"
-            android:text="Under Prayer"
+            android:text="Received"
             android:textColor="@color/black"
             android:textSize="10sp"
             android:textStyle="bold"
@@ -52,6 +57,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvDate" />
 
+        <!-- CONFIDENTIAL ICON -->
         <ImageView
             android:id="@+id/ivConfidential"
             android:layout_width="16dp"
@@ -63,5 +69,33 @@
             app:layout_constraintEnd_toStartOf="@id/tvStatus"
             app:layout_constraintTop_toTopOf="@id/tvStatus" />
 
+        <!-- PASTOR FEEDBACK LABEL -->
+        <TextView
+            android:id="@+id/tvFeedbackLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:text="Pastor Feedback"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_small"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDate" />
+
+        <!-- PASTOR FEEDBACK -->
+        <TextView
+            android:id="@+id/tvPastorFeedback"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="No feedback yet."
+            android:textColor="@color/grey_dark"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFeedbackLabel" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.cardview.widget.CardView>

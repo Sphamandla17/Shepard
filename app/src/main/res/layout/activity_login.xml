@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:padding="@dimen/spacing_large">
 
+
+    <!-- BACK BUTTON -->
     <ImageButton
         android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@android:color/transparent"
         android:contentDescription="@string/back"
+        android:padding="12dp"
         android:src="@drawable/ic_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <!-- CHURCH LOGO -->
     <ImageView
         android:id="@+id/logoPlaceholder"
         android:layout_width="@dimen/logo_size_small"
@@ -27,6 +34,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnBack" />
 
+
+    <!-- HEADING -->
     <TextView
         android:id="@+id/heading"
         android:layout_width="wrap_content"
@@ -40,6 +49,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logoPlaceholder" />
 
+
+    <!-- EMAIL -->
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="0dp"
@@ -53,6 +64,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/heading" />
 
+
+    <!-- PASSWORD -->
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="0dp"
@@ -66,6 +79,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etEmail" />
 
+
+    <!-- FORGOT PASSWORD -->
     <TextView
         android:id="@+id/tvForgotPassword"
         android:layout_width="wrap_content"
@@ -77,6 +92,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etPassword" />
 
+
+    <!-- SIGN IN BUTTON -->
     <Button
         android:id="@+id/btnSignIn"
         android:layout_width="0dp"
@@ -90,6 +107,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvForgotPassword" />
 
+
+    <!-- OR DIVIDER -->
     <LinearLayout
         android:id="@+id/dividerLayout"
         android:layout_width="0dp"
@@ -120,8 +139,11 @@
             android:layout_height="1dp"
             android:layout_weight="1"
             android:background="@color/border_light" />
+
     </LinearLayout>
 
+
+    <!-- GOOGLE SIGN IN -->
     <Button
         android:id="@+id/btnGoogleSignIn"
         android:layout_width="0dp"
@@ -135,6 +157,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/dividerLayout" />
 
+
+    <!-- CREATE ACCOUNT -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -158,6 +182,8 @@
             android:text="@string/create_account"
             android:textColor="@color/black"
             android:textStyle="bold" />
+
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,59 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/white">
 
-    <androidx.appcompat.widget.Toolbar
+    <!-- TOP BAR -->
+    <LinearLayout
         android:id="@+id/toolbar"
-        android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/white">
 
         <ImageButton
             android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/back"
+            android:padding="12dp"
             android:src="@drawable/ic_back" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Prayer Requests"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/prayer_requests"
             android:textColor="@color/black"
             android:textSize="@dimen/text_size_h2"
             android:textStyle="bold" />
 
-    </androidx.appcompat.widget.Toolbar>
+        <View
+            android:layout_width="56dp"
+            android:layout_height="1dp" />
 
-    <EditText
-        android:id="@+id/etSearch"
-        android:layout_width="0dp"
+    </LinearLayout>
+
+    <!-- DESCRIPTION -->
+    <TextView
+        android:id="@+id/tvPrayerRequestsDescription"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/spacing_medium"
-        android:background="@drawable/bg_edittext"
-        android:drawableStart="@drawable/ic_search"
-        android:drawablePadding="@dimen/spacing_small"
-        android:hint="Search requests..."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+        android:layout_marginStart="@dimen/spacing_large"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:layout_marginEnd="@dimen/spacing_large"
+        android:text="@string/pastor_prayer_requests_description"
+        android:textColor="@color/grey_dark"
+        android:textSize="@dimen/text_size_body" />
 
+    <!-- PASTOR PRAYER REQUEST LIST -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPastorPrayerRequests"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingHorizontal="@dimen/spacing_medium"
-        android:layout_marginTop="@dimen/spacing_small"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etSearch" />
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:padding="@dimen/spacing_medium" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

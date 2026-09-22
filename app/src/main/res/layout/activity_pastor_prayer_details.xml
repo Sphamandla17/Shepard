@@ -1,35 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/white">
 
-    <androidx.appcompat.widget.Toolbar
+    <!-- TOP BAR -->
+    <LinearLayout
         android:id="@+id/toolbar"
-        android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/white">
 
         <ImageButton
             android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/back"
+            android:padding="12dp"
             android:src="@drawable/ic_back" />
 
-    </androidx.appcompat.widget.Toolbar>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/prayer_request"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_h2"
+            android:textStyle="bold" />
 
+        <View
+            android:layout_width="56dp"
+            android:layout_height="1dp" />
+
+    </LinearLayout>
+
+    <!-- CONTENT -->
     <ScrollView
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/llButtons"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar">
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,6 +54,7 @@
             android:orientation="vertical"
             android:padding="@dimen/spacing_large">
 
+            <!-- MEMBER NAME -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -48,7 +66,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Siphamandla Tshabalala"
+                    android:text="Prayer Request"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_size_h2"
                     android:textStyle="bold" />
@@ -64,14 +82,16 @@
                     android:textColor="@color/black"
                     android:textSize="10sp"
                     android:textStyle="bold" />
+
             </LinearLayout>
 
+            <!-- CATEGORY -->
             <TextView
                 android:id="@+id/tvDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Submitted: 14 Oct 2024"
+                android:text="Category"
                 android:textColor="@color/grey_dark"
                 android:textSize="@dimen/text_size_small" />
 
@@ -81,15 +101,17 @@
                 android:layout_marginVertical="@dimen/spacing_large"
                 android:background="@color/border_light" />
 
+            <!-- PRAYER REQUEST -->
             <TextView
                 android:id="@+id/tvPrayerRequestContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="4dp"
-                android:text="Please pray for my grandmother who is recovering from surgery. We are trusting God for a full and speedy recovery. She has been in the hospital for three days now, and we are hoping she can come home by the weekend. Thank you for your support and prayers."
+                android:text="Prayer request"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size_body" />
 
+            <!-- STATUS LABEL -->
             <TextView
                 android:id="@+id/tvStatusLabel"
                 android:layout_width="wrap_content"
@@ -100,28 +122,64 @@
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
+            <!-- STATUS -->
             <TextView
                 android:id="@+id/tvStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="New"
+                android:text="Received"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size_body"
                 android:textStyle="bold" />
 
+            <!-- PASTOR FEEDBACK LABEL -->
+            <TextView
+                android:id="@+id/tvFeedbackLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xlarge"
+                android:text="Pastor Feedback"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_body"
+                android:textStyle="bold" />
+
+            <!-- PASTOR FEEDBACK INPUT -->
+            <EditText
+                android:id="@+id/etPastorFeedback"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:background="@drawable/bg_card"
+                android:gravity="top"
+                android:hint="Write your feedback or message..."
+                android:inputType="textMultiLine"
+                android:padding="14dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey_dark" />
+
+            <!-- SEND FEEDBACK -->
+            <Button
+                android:id="@+id/btnSendFeedback"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:background="@drawable/bg_button_primary"
+                android:text="Send Feedback"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
         </LinearLayout>
+
     </ScrollView>
 
+    <!-- ACTION BUTTONS -->
     <LinearLayout
         android:id="@+id/llButtons"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/spacing_large"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:padding="@dimen/spacing_large">
 
         <Button
             android:id="@+id/btnMarkUnderPrayer"
@@ -141,6 +199,7 @@
             android:text="Mark as Completed"
             android:textAllCaps="false"
             android:textColor="@color/black" />
+
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

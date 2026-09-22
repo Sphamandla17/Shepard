@@ -1,58 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <!-- TOOLBAR -->
+    <LinearLayout
+        android:id="@+id/adminEventsToolbar"
         android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <ImageButton
             android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_back" />
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back"
+            android:contentDescription="@string/back"
+            app:tint="@color/white" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/tvToolbarTitle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Manage Events"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_size_h2"
-            android:textStyle="bold" />
+            android:layout_weight="1"
+            android:text="@string/manage_events"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingStart="8dp" />
 
-    </androidx.appcompat.widget.Toolbar>
+    </LinearLayout>
 
+    <!-- EVENTS LIST -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAdminEvents"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:padding="@dimen/spacing_medium"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/adminEventsToolbar"
         app:layout_constraintBottom_toTopOf="@id/btnCreateEvent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- CREATE EVENT BUTTON -->
     <Button
         android:id="@+id/btnCreateEvent"
         android:layout_width="0dp"
         android:layout_height="@dimen/button_height"
         android:layout_margin="@dimen/spacing_large"
         android:background="@drawable/bg_button_primary"
-        android:text="Create Event"
-        android:textAllCaps="false"
+        android:text="@string/create_event"
         android:textColor="@color/white"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
