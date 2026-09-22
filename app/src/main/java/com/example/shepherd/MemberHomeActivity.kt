@@ -38,6 +38,9 @@ class MemberHomeActivity : ComponentActivity() {
         val btnBible =
             findViewById<Button>(R.id.btnBible)
 
+        val btnAnnouncements =
+            findViewById<Button>(R.id.btnAnnouncements)
+
         val btnNotifications =
             findViewById<Button>(R.id.btnNotifications)
 
@@ -50,11 +53,13 @@ class MemberHomeActivity : ComponentActivity() {
         val btnSettings =
             findViewById<Button>(R.id.btnSettings)
 
-        val currentUser = auth.currentUser
+        val currentUser =
+            auth.currentUser
 
         if (currentUser != null) {
 
-            val userId = currentUser.uid
+            val userId =
+                currentUser.uid
 
             firestore
                 .collection("users")
@@ -113,6 +118,18 @@ class MemberHomeActivity : ComponentActivity() {
                 Intent(
                     this,
                     BibleActivity::class.java
+                )
+            )
+        }
+
+        // ANNOUNCEMENTS
+
+        btnAnnouncements.setOnClickListener {
+
+            startActivity(
+                Intent(
+                    this,
+                    AnnouncementsActivity::class.java
                 )
             )
         }

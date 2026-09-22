@@ -90,6 +90,18 @@
             android:textAllCaps="false"
             android:textColor="@color/black" />
 
+        <!-- ANNOUNCEMENTS -->
+
+        <Button
+            android:id="@+id/btnAnnouncements"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:background="@drawable/bg_button_secondary"
+            android:text="@string/announcements"
+            android:textAllCaps="false"
+            android:textColor="@color/black" />
+
         <!-- NOTIFICATIONS -->
 
         <Button
