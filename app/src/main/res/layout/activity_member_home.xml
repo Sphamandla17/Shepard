@@ -78,6 +78,18 @@
             android:textAllCaps="false"
             android:textColor="@color/black" />
 
+        <!-- BIBLE -->
+
+        <Button
+            android:id="@+id/btnBible"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:background="@drawable/bg_button_secondary"
+            android:text="@string/bible"
+            android:textAllCaps="false"
+            android:textColor="@color/black" />
+
         <!-- NOTIFICATIONS -->
 
         <Button

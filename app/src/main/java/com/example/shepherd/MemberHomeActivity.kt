@@ -35,6 +35,9 @@ class MemberHomeActivity : ComponentActivity() {
         val btnEvents =
             findViewById<Button>(R.id.btnEvents)
 
+        val btnBible =
+            findViewById<Button>(R.id.btnBible)
+
         val btnNotifications =
             findViewById<Button>(R.id.btnNotifications)
 
@@ -78,7 +81,10 @@ class MemberHomeActivity : ComponentActivity() {
                 }
         }
 
+        // PRAYER REQUESTS
+
         btnPrayerRequests.setOnClickListener {
+
             startActivity(
                 Intent(
                     this,
@@ -87,7 +93,10 @@ class MemberHomeActivity : ComponentActivity() {
             )
         }
 
+        // EVENTS
+
         btnEvents.setOnClickListener {
+
             startActivity(
                 Intent(
                     this,
@@ -96,7 +105,22 @@ class MemberHomeActivity : ComponentActivity() {
             )
         }
 
+        // BIBLE
+
+        btnBible.setOnClickListener {
+
+            startActivity(
+                Intent(
+                    this,
+                    BibleActivity::class.java
+                )
+            )
+        }
+
+        // NOTIFICATIONS
+
         btnNotifications.setOnClickListener {
+
             startActivity(
                 Intent(
                     this,
@@ -105,7 +129,10 @@ class MemberHomeActivity : ComponentActivity() {
             )
         }
 
+        // QR CHECK-IN
+
         btnQrCheckIn.setOnClickListener {
+
             startActivity(
                 Intent(
                     this,
@@ -114,7 +141,10 @@ class MemberHomeActivity : ComponentActivity() {
             )
         }
 
+        // PROFILE
+
         btnProfile.setOnClickListener {
+
             startActivity(
                 Intent(
                     this,
@@ -123,7 +153,10 @@ class MemberHomeActivity : ComponentActivity() {
             )
         }
 
+        // SETTINGS
+
         btnSettings.setOnClickListener {
+
             startActivity(
                 Intent(
                     this,
