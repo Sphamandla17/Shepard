@@ -391,3 +391,9 @@ Possible future improvements include:
 The Shepherd provides a central digital platform for AUNBC church members, administrators and pastors. The application combines Android development, Firebase services, REST API communication, SQL Server, external API integration and multilingual support.
 
 The project demonstrates the practical application of mobile application development, database management, API development, version control and software testing.
+## 10. SHEPHERD DEMONSTRATION VIDEO
+
+DEMONSTRATION VIDEO 
+
+[OneDrive :]
+(https://advtechonline-my.sharepoint.com/:v:/g/personal/st10441479_rcconnect_edu_za/IQDxmRRm2ZgHQaaJfmEhafdRAcMuKal4JfBUVhXbve6Lr_A?e=piaQ8f.)
