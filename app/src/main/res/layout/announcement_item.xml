@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -8,6 +7,15 @@
     android:padding="@dimen/spacing_medium"
     android:layout_marginBottom="@dimen/spacing_medium"
     android:background="@drawable/bg_card">
+
+    <ImageView
+        android:id="@+id/ivAnnouncementThumbnail"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_marginBottom="@dimen/spacing_small"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        android:contentDescription="Announcement image" />
 
     <TextView
         android:id="@+id/tvAnnouncementTitle"
@@ -22,6 +30,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_small"
+        android:ellipsize="end"
+        android:maxLines="3"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size_body" />
 

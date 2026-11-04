@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.MetadataChanges
 import com.google.firebase.firestore.Query
 
 class PrayerRequestsActivity : ComponentActivity() {
@@ -20,6 +21,8 @@ class PrayerRequestsActivity : ComponentActivity() {
 
     private val prayerRequests =
         mutableListOf<PrayerRequest>()
+
+    private var listenerRegistration: com.google.firebase.firestore.ListenerRegistration? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,7 +88,9 @@ class PrayerRequestsActivity : ComponentActivity() {
             return
         }
 
-        firestore.collection("prayerRequests")
+        listenerRegistration?.remove()
+
+        listenerRegistration = firestore.collection("prayerRequests")
             .whereEqualTo(
                 "userId",
                 currentUser.uid
@@ -94,69 +99,76 @@ class PrayerRequestsActivity : ComponentActivity() {
                 "createdAt",
                 Query.Direction.DESCENDING
             )
-            .get()
-            .addOnSuccessListener { documents ->
+            .addSnapshotListener(MetadataChanges.INCLUDE) { snapshots, error ->
 
-                prayerRequests.clear()
-
-                for (document in documents) {
-
-                    val request =
-                        PrayerRequest(
-                            id = document.id,
-
-                            userId =
-                                document.getString(
-                                    "userId"
-                                ) ?: "",
-
-                            category =
-                                document.getString(
-                                    "category"
-                                ) ?: "",
-
-                            requestText =
-                                document.getString(
-                                    "requestText"
-                                ) ?: "",
-
-                            status =
-                                document.getString(
-                                    "status"
-                                ) ?: "Received",
-
-                            pastorFeedback =
-                                document.getString(
-                                    "pastorFeedback"
-                                ) ?: "",
-
-                            locationShared =
-                                document.getBoolean(
-                                    "locationShared"
-                                ) ?: false
-                        )
-
-                    prayerRequests.add(request)
+                if (error != null) {
+                    if (NetworkUtils.isInternetAvailable(this)) {
+                        Toast.makeText(
+                            this,
+                            "Failed to load prayer requests: ${error.message}",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                    return@addSnapshotListener
                 }
 
-                adapter.notifyDataSetChanged()
+                if (snapshots != null) {
 
-                if (prayerRequests.isEmpty()) {
+                    prayerRequests.clear()
 
-                    Toast.makeText(
-                        this,
-                        "No prayer requests found",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    for (document in snapshots.documents) {
+
+                        val hasPending =
+                            document.metadata.hasPendingWrites()
+
+                        val rawStatus =
+                            document.getString("status")
+                                ?: "Received"
+
+                        val status =
+                            if (hasPending) {
+                                "Pending Sync"
+                            } else {
+                                rawStatus
+                            }
+
+                        val request =
+                            PrayerRequest(
+                                id = document.id,
+
+                                userId =
+                                    document.getString(
+                                        "userId"
+                                    ) ?: "",
+
+                                category =
+                                    document.getString(
+                                        "category"
+                                    ) ?: "",
+
+                                requestText =
+                                    document.getString(
+                                        "requestText"
+                                    ) ?: "",
+
+                                status = status,
+
+                                pastorFeedback =
+                                    document.getString(
+                                        "pastorFeedback"
+                                    ) ?: "",
+
+                                locationShared =
+                                    document.getBoolean(
+                                        "locationShared"
+                                    ) ?: false
+                            )
+
+                        prayerRequests.add(request)
+                    }
+
+                    adapter.notifyDataSetChanged()
                 }
-            }
-            .addOnFailureListener { error ->
-
-                Toast.makeText(
-                    this,
-                    "Failed to load prayer requests: ${error.message}",
-                    Toast.LENGTH_LONG
-                ).show()
             }
     }
 
@@ -166,5 +178,11 @@ class PrayerRequestsActivity : ComponentActivity() {
         if (::adapter.isInitialized) {
             loadPrayerRequests()
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        listenerRegistration?.remove()
+        listenerRegistration = null
     }
 }

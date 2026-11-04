@@ -67,6 +67,30 @@
             android:textAllCaps="false"
             android:textColor="@color/white" />
 
+        <!-- ANNOUNCEMENTS -->
+
+        <Button
+            android:id="@+id/btnPastorAnnouncements"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:background="@drawable/bg_button_secondary"
+            android:text="Announcements"
+            android:textAllCaps="false"
+            android:textColor="@color/black" />
+
+        <!-- PRAYER REQUESTS -->
+
+        <Button
+            android:id="@+id/btnPastorPrayerRequests"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:background="@drawable/bg_button_secondary"
+            android:text="Prayer Requests"
+            android:textAllCaps="false"
+            android:textColor="@color/black" />
+
         <!-- NOTIFICATIONS -->
 
         <Button

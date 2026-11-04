@@ -21,10 +21,7 @@
             android:id="@+id/nav_admin_registrations"
             android:icon="@drawable/ic_events"
             android:title="Event Registrations" />
-        <item
-            android:id="@+id/nav_admin_qr_checkin"
-            android:icon="@drawable/ic_qr_placeholder"
-            android:title="QR Check-In" />
+
         <item
             android:id="@+id/nav_admin_notifications"
             android:icon="@drawable/ic_notifications"

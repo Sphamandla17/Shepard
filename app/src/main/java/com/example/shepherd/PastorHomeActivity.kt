@@ -10,7 +10,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class PastorHomeActivity : AppCompatActivity() {
 
-
     private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
 
@@ -43,6 +42,12 @@ class PastorHomeActivity : AppCompatActivity() {
         val btnPastorMembers =
             findViewById<Button>(R.id.btnPastorMembers)
 
+        val btnPastorAnnouncements =
+            findViewById<Button>(R.id.btnPastorAnnouncements)
+
+        val btnPastorPrayerRequests =
+            findViewById<Button>(R.id.btnPastorPrayerRequests)
+
         val btnNotifications =
             findViewById<Button>(R.id.btnNotifications)
 
@@ -63,6 +68,32 @@ class PastorHomeActivity : AppCompatActivity() {
                 Intent(
                     this,
                     AdminMembersActivity::class.java
+                )
+            )
+        }
+
+        // ==========================================
+        // OPEN ANNOUNCEMENTS
+        // ==========================================
+
+        btnPastorAnnouncements.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    PastorAnnouncementsActivity::class.java
+                )
+            )
+        }
+
+        // ==========================================
+        // OPEN PRAYER REQUESTS
+        // ==========================================
+
+        btnPastorPrayerRequests.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    PastorPrayerRequestsActivity::class.java
                 )
             )
         }
@@ -160,6 +191,4 @@ class PastorHomeActivity : AppCompatActivity() {
             loadPastorHome()
         }
     }
-
-
 }

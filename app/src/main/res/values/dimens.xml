@@ -6,9 +6,9 @@
     <dimen name="spacing_xlarge">32dp</dimen>
 
     <dimen name="button_height">56dp</dimen>
-    <dimen name="button_corner_radius">8dp</dimen>
+    <dimen name="button_corner_radius">12dp</dimen>
 
-    <dimen name="card_corner_radius">12dp</dimen>
+    <dimen name="card_corner_radius">16dp</dimen>
     <dimen name="card_elevation">2dp</dimen>
 
     <dimen name="text_size_h1">24sp</dimen>

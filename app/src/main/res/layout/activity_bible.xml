@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -21,7 +20,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_gravity="center_vertical"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/back"
             android:padding="12dp"
             android:src="@drawable/ic_back" />
@@ -31,13 +30,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="John 3"
+            android:text="@string/bible"
             android:textColor="@color/black"
             android:textSize="@dimen/text_size_h2"
             android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
-
 
     <ScrollView
         android:layout_width="0dp"
@@ -53,9 +51,86 @@
             android:orientation="vertical"
             android:padding="@dimen/spacing_large">
 
+            <!-- SEARCH BAR -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/spacing_medium">
+
+                <EditText
+                    android:id="@+id/etSearchBible"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_edittext"
+                    android:hint="@string/search_bible"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:paddingHorizontal="12dp"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/btnSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/bg_button_primary"
+                    android:text="@string/search"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <!-- BROWSE CONTROLS (TESTAMENT, BOOK, CHAPTER) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/spacing_medium">
+
+                <Spinner
+                    android:id="@+id/spinnerTestament"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1" />
+
+                <Spinner
+                    android:id="@+id/spinnerBook"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1.5"
+                    android:layout_marginStart="4dp" />
+
+                <Spinner
+                    android:id="@+id/spinnerChapter"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="0.8"
+                    android:layout_marginStart="4dp" />
+            </LinearLayout>
+
+            <!-- DOWNLOAD COMPLETE BIBLE -->
+            <Button
+                android:id="@+id/btnDownloadBible"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                android:background="@drawable/bg_button_secondary"
+                android:text="@string/download_bible"
+                android:textAllCaps="false"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvDownloadStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                android:gravity="center"
+                android:textColor="@color/grey_dark"
+                android:textSize="12sp"
+                android:visibility="gone" />
 
             <!-- DAILY VERSE -->
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -85,7 +160,7 @@
                         android:lineSpacingExtra="4dp"
                         android:text="Loading..."
                         android:textColor="@color/black"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="italic" />
 
                     <TextView
@@ -102,9 +177,7 @@
 
             </androidx.cardview.widget.CardView>
 
-
-            <!-- CHAPTER -->
-
+            <!-- CHAPTER HEADING -->
             <TextView
                 android:id="@+id/tvChapterHeading"
                 android:layout_width="wrap_content"
@@ -115,9 +188,7 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-
             <!-- API VERSES -->
-
             <LinearLayout
                 android:id="@+id/llVerses"
                 android:layout_width="match_parent"
@@ -125,13 +196,41 @@
                 android:layout_marginTop="@dimen/spacing_medium"
                 android:orientation="vertical" />
 
-
-            <!-- OFFLINE MESSAGE -->
-
+            <!-- PREV / NEXT CHAPTER NAVIGATION -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:layout_marginTop="@dimen/spacing_large"
+                android:layout_marginBottom="@dimen/spacing_large">
+
+                <Button
+                    android:id="@+id/btnPrevChapter"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button_secondary"
+                    android:text="@string/previous_chapter"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black" />
+
+                <Button
+                    android:id="@+id/btnNextChapter"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/bg_button_primary"
+                    android:text="@string/next_chapter"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <!-- OFFLINE MESSAGE -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -139,13 +238,14 @@
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:src="@drawable/ic_notifications"
-                    app:tint="@color/grey_dark" />
+                    app:tint="@color/grey_dark"
+                    android:contentDescription="Offline icon" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Bible content is available offline once loaded."
+                    android:text="@string/offline_bible_notice"
                     android:textColor="@color/grey_dark"
                     android:textSize="12sp" />
 

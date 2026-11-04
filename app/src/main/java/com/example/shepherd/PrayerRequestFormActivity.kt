@@ -106,29 +106,44 @@ class PrayerRequestFormActivity : ComponentActivity() {
                 "createdAt" to FieldValue.serverTimestamp()
             )
 
+            // 1. Disable button immediately and show submitting message
             btnSubmitPrayer.isEnabled = false
+            btnSubmitPrayer.text = "Submitting..."
 
-            firestore.collection("prayerRequests")
-                .add(prayerRequest)
+            val docRef = firestore.collection("prayerRequests").document()
+            val isOnline = NetworkUtils.isInternetAvailable(this)
+
+            docRef.set(prayerRequest)
                 .addOnSuccessListener {
-
-                    Toast.makeText(
-                        this,
-                        "Prayer request submitted successfully",
-                        Toast.LENGTH_LONG
-                    ).show()
-
-                    finish()
+                    if (!isFinishing && !isDestroyed) {
+                        if (isOnline) {
+                            Toast.makeText(
+                                this,
+                                "Prayer request submitted successfully",
+                                Toast.LENGTH_LONG
+                            ).show()
+                        } else {
+                            Toast.makeText(
+                                this,
+                                "Prayer request saved on this device. It will synchronise when internet returns.",
+                                Toast.LENGTH_LONG
+                            ).show()
+                        }
+                        finish()
+                    }
                 }
-                .addOnFailureListener {
+                .addOnFailureListener { e ->
+                    if (!isFinishing && !isDestroyed) {
+                        // Re-enable button on genuine failure
+                        btnSubmitPrayer.isEnabled = true
+                        btnSubmitPrayer.text = getString(R.string.submit_prayer_request)
 
-                    btnSubmitPrayer.isEnabled = true
-
-                    Toast.makeText(
-                        this,
-                        "Failed to submit prayer request",
-                        Toast.LENGTH_LONG
-                    ).show()
+                        Toast.makeText(
+                            this,
+                            "Failed to submit prayer request: ${e.message}",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
                 }
         }
     }

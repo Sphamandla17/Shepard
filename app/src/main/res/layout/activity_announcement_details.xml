@@ -41,7 +41,7 @@
                 android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Youth Fellowship Night"
+                android:text="Announcement Title"
                 android:textColor="@color/black"
                 android:textSize="28sp"
                 android:textStyle="bold" />
@@ -51,16 +51,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_small"
-                android:text="15 Oct 2024"
+                android:text="Date"
                 android:textColor="@color/grey_dark"
                 android:textSize="@dimen/text_size_small" />
 
-            <View
-                android:id="@+id/ivImagePlaceholder"
+            <ImageView
+                android:id="@+id/ivAnnouncementImage"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="220dp"
                 android:layout_marginTop="@dimen/spacing_large"
-                android:background="@color/grey_light" />
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                android:contentDescription="Announcement image" />
+
+            <Button
+                android:id="@+id/btnDownloadImage"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:background="@drawable/bg_button_secondary"
+                android:text="Download Image"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/tvContent"
@@ -68,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_large"
                 android:lineSpacingExtra="4dp"
-                android:text="Dear Church Family,\n\nWe are excited to invite all our youth members to a special Fellowship Night this coming Friday. It will be an evening filled with worship, engaging games, and a time to build lasting friendships within our community.\n\nWe believe in nurturing the spiritual growth of our young members and providing a safe, welcoming environment for them to express their faith and have fun.\n\nPlease bring a friend along! Light refreshments will be served.\n\nDate: Friday, 18 October 2024\nTime: 6:30 PM - 8:30 PM\nLocation: Youth Hall\n\nWe look forward to seeing you there!"
+                android:text="Content..."
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size_body" />
 

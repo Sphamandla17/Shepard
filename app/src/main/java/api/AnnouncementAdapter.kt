@@ -3,17 +3,25 @@ package com.example.shepherd.api
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.shepherd.R
 
 class AnnouncementAdapter(
-    private var announcements: List<Announcement>
+    private var announcements: List<Announcement>,
+    private val onItemClick: (Announcement) -> Unit
 ) : RecyclerView.Adapter<AnnouncementAdapter.AnnouncementViewHolder>() {
 
     class AnnouncementViewHolder(
         itemView: View
     ) : RecyclerView.ViewHolder(itemView) {
+
+        val thumbnail: ImageView =
+            itemView.findViewById(
+                R.id.ivAnnouncementThumbnail
+            )
 
         val title: TextView =
             itemView.findViewById(
@@ -63,6 +71,21 @@ class AnnouncementAdapter(
 
         holder.createdBy.text =
             "Posted by: ${announcement.createdBy}"
+
+        if (!announcement.imageUrl.isNullOrEmpty()) {
+            holder.thumbnail.visibility = View.VISIBLE
+            holder.thumbnail.load(announcement.imageUrl) {
+                crossfade(true)
+                placeholder(R.drawable.ic_logo_placeholder)
+                error(R.drawable.ic_logo_placeholder)
+            }
+        } else {
+            holder.thumbnail.visibility = View.GONE
+        }
+
+        holder.itemView.setOnClickListener {
+            onItemClick(announcement)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -72,10 +95,8 @@ class AnnouncementAdapter(
     fun updateAnnouncements(
         newAnnouncements: List<Announcement>
     ) {
-
         announcements =
             newAnnouncements
-
         notifyDataSetChanged()
     }
 }

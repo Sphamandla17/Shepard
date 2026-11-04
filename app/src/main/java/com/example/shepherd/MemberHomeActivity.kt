@@ -1,7 +1,10 @@
 package com.example.shepherd
 
 import android.content.Intent
+import android.net.ConnectivityManager
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.ComponentActivity
@@ -14,6 +17,9 @@ class MemberHomeActivity : ComponentActivity() {
     private lateinit var firestore: FirebaseFirestore
 
     private var currentLanguage = ""
+    private var networkCallback: ConnectivityManager.NetworkCallback? = null
+    private var tvOfflineBanner: TextView? = null
+    private var hideRunnable: Runnable? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +31,9 @@ class MemberHomeActivity : ComponentActivity() {
 
         auth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
+
+        tvOfflineBanner =
+            findViewById(R.id.tvOfflineBanner)
 
         val tvWelcomeMessage =
             findViewById<TextView>(R.id.tvWelcomeMessage)
@@ -44,8 +53,7 @@ class MemberHomeActivity : ComponentActivity() {
         val btnNotifications =
             findViewById<Button>(R.id.btnNotifications)
 
-        val btnQrCheckIn =
-            findViewById<Button>(R.id.btnQrCheckIn)
+
 
         val btnProfile =
             findViewById<Button>(R.id.btnProfile)
@@ -146,17 +154,7 @@ class MemberHomeActivity : ComponentActivity() {
             )
         }
 
-        // QR CHECK-IN
 
-        btnQrCheckIn.setOnClickListener {
-
-            startActivity(
-                Intent(
-                    this,
-                    QrCheckinActivity::class.java
-                )
-            )
-        }
 
         // PROFILE
 
@@ -181,6 +179,95 @@ class MemberHomeActivity : ComponentActivity() {
                 )
             )
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val initialAvailable = NetworkUtils.isInternetAvailable(this)
+        Log.d("SHEPHERD_OFFLINE", "onStart: initial isInternetAvailable = $initialAvailable")
+        updateConnectionStatus(initialAvailable)
+
+        if (networkCallback == null) {
+            networkCallback = NetworkUtils.registerNetworkCallback(
+                context = this,
+                onAvailable = {
+                    Log.d("SHEPHERD_OFFLINE", "Callback triggered: onAvailable")
+                },
+                onValidated = {
+                    Log.d("SHEPHERD_OFFLINE", "Callback triggered: onValidated")
+                    runOnUiThread {
+                        val avail = NetworkUtils.isInternetAvailable(this)
+                        Log.d("SHEPHERD_OFFLINE", "onValidated check: isInternetAvailable = $avail")
+                        if (avail) {
+                            updateConnectionStatus(true)
+                        }
+                    }
+                },
+                onInternetLost = {
+                    Log.d("SHEPHERD_OFFLINE", "Callback triggered: onInternetLost")
+                    runOnUiThread {
+                        val avail = NetworkUtils.isInternetAvailable(this)
+                        Log.d("SHEPHERD_OFFLINE", "onInternetLost check: isInternetAvailable = $avail")
+                        if (!avail) {
+                            updateConnectionStatus(false)
+                        }
+                    }
+                },
+                onLost = {
+                    Log.d("SHEPHERD_OFFLINE", "Callback triggered: onLost")
+                    runOnUiThread {
+                        val avail = NetworkUtils.isInternetAvailable(this)
+                        Log.d("SHEPHERD_OFFLINE", "onLost check: isInternetAvailable = $avail")
+                        if (!avail) {
+                            updateConnectionStatus(false)
+                        }
+                    }
+                }
+            )
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("SHEPHERD_OFFLINE", "onStop: unregistering networkCallback")
+        hideRunnable?.let { tvOfflineBanner?.removeCallbacks(it) }
+        hideRunnable = null
+        NetworkUtils.unregisterNetworkCallback(this, networkCallback)
+        networkCallback = null
+    }
+
+    private fun updateConnectionStatus(isAvailable: Boolean) {
+        Log.d("SHEPHERD_OFFLINE", "updateConnectionStatus called with: isAvailable = $isAvailable")
+        tvOfflineBanner?.let { banner ->
+            // Cancel any pending delayed hide runnables immediately when state changes
+            hideRunnable?.let { banner.removeCallbacks(it) }
+            hideRunnable = null
+
+            if (isAvailable) {
+                if (NetworkUtils.isInternetAvailable(this)) {
+                    banner.text = "Back online"
+                    banner.visibility = View.VISIBLE
+                    Log.d("SHEPHERD_OFFLINE", "Banner assigned visibility: View.VISIBLE (Back online)")
+
+                    val runnable = Runnable {
+                        if (NetworkUtils.isInternetAvailable(this)) {
+                            banner.visibility = View.GONE
+                            Log.d("SHEPHERD_OFFLINE", "Banner assigned visibility: View.GONE (Hidden after delay)")
+                        }
+                    }
+                    hideRunnable = runnable
+                    banner.postDelayed(runnable, 3000)
+                } else {
+                    banner.text = "No internet connection – using cached data"
+                    banner.visibility = View.VISIBLE
+                    Log.d("SHEPHERD_OFFLINE", "Banner assigned visibility: View.VISIBLE (Offline fallback)")
+                }
+            } else {
+                banner.text = "No internet connection – using cached data"
+                banner.visibility = View.VISIBLE
+                Log.d("SHEPHERD_OFFLINE", "Banner assigned visibility: View.VISIBLE (Offline)")
+            }
+        } ?: Log.d("SHEPHERD_OFFLINE", "tvOfflineBanner is NULL!")
     }
 
     override fun onResume() {

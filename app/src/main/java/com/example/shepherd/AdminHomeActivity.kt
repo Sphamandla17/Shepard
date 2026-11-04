@@ -30,6 +30,9 @@ class AdminHomeActivity : ComponentActivity() {
         val btnCreateEvent =
             findViewById<Button>(R.id.btnCreateEvent)
 
+        val btnManageAnnouncements =
+            findViewById<Button>(R.id.btnManageAnnouncements)
+
         val btnNotifications =
             findViewById<Button>(R.id.btnNotifications)
 
@@ -74,6 +77,19 @@ class AdminHomeActivity : ComponentActivity() {
                 Intent(
                     this,
                     CreateEventActivity::class.java
+                )
+            )
+        }
+
+
+        // ==========================================
+        // MANAGE ANNOUNCEMENTS
+        // ==========================================
+        btnManageAnnouncements.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    AdminAnnouncementsActivity::class.java
                 )
             )
         }

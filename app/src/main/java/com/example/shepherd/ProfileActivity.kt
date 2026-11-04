@@ -75,6 +75,7 @@ class ProfileActivity : ComponentActivity() {
 
         rowLogout.setOnClickListener {
 
+            ShepherdFirebaseMessagingService.removeTokenOnSignOut()
             auth.signOut()
 
             Toast.makeText(

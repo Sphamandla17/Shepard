@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.MetadataChanges
+import com.google.firebase.firestore.Query
 
 class NotificationsActivity : ComponentActivity() {
 
@@ -15,9 +17,15 @@ class NotificationsActivity : ComponentActivity() {
     private lateinit var auth: FirebaseAuth
 
     private lateinit var rvNotifications: RecyclerView
+    private var listenerRegistration: com.google.firebase.firestore.ListenerRegistration? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        LanguageHelper.setLanguage(
+            this,
+            LanguageHelper.getSavedLanguage(this)
+        )
 
         setContentView(R.layout.activity_notifications)
 
@@ -71,7 +79,7 @@ class NotificationsActivity : ComponentActivity() {
                     userDocument.getString("language")
                         ?: "en"
 
-                loadNotificationDocuments(language)
+                listenToNotifications(language)
             }
             .addOnFailureListener { exception ->
 
@@ -80,67 +88,85 @@ class NotificationsActivity : ComponentActivity() {
                     "Could not load your language: ${exception.message}",
                     Toast.LENGTH_LONG
                 ).show()
+                listenToNotifications("en")
             }
     }
 
-    private fun loadNotificationDocuments(
+    private fun listenToNotifications(
         language: String
     ) {
 
-        firestore
+        listenerRegistration?.remove()
+
+        listenerRegistration = firestore
             .collection("notifications")
             .orderBy(
                 "createdAt",
-                com.google.firebase.firestore.Query.Direction.DESCENDING
+                Query.Direction.DESCENDING
             )
-            .get()
-            .addOnSuccessListener { documents ->
+            .addSnapshotListener(MetadataChanges.INCLUDE) { snapshots, exception ->
 
-                val notifications =
-                    mutableListOf<NotificationItem>()
-
-                for (document in documents) {
-
-                    val title =
-                        if (language == "zu") {
-                            document.getString("zuluTitle")
-                                ?: ""
-                        } else {
-                            document.getString("englishTitle")
-                                ?: ""
-                        }
-
-                    val message =
-                        if (language == "zu") {
-                            document.getString("zuluMessage")
-                                ?: ""
-                        } else {
-                            document.getString("englishMessage")
-                                ?: ""
-                        }
-
-                    val createdAt =
-                        document.getTimestamp("createdAt")
-
-                    notifications.add(
-                        NotificationItem(
-                            title = title,
-                            message = message,
-                            createdAt = createdAt
-                        )
-                    )
+                if (exception != null) {
+                    if (NetworkUtils.isInternetAvailable(this)) {
+                        Toast.makeText(
+                            this,
+                            "Could not load notifications: ${exception.message}",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                    return@addSnapshotListener
                 }
 
-                rvNotifications.adapter =
-                    NotificationAdapter(notifications)
-            }
-            .addOnFailureListener { exception ->
+                if (snapshots != null) {
 
-                Toast.makeText(
-                    this,
-                    "Could not load notifications: ${exception.message}",
-                    Toast.LENGTH_LONG
-                ).show()
+                    val notifications =
+                        mutableListOf<NotificationItem>()
+
+                    for (document in snapshots.documents) {
+
+                        val title =
+                            if (language == "zu") {
+                                document.getString("zuluTitle")
+                                    ?: document.getString("englishTitle")
+                                    ?: ""
+                            } else {
+                                document.getString("englishTitle")
+                                    ?: document.getString("zuluTitle")
+                                    ?: ""
+                            }
+
+                        val message =
+                            if (language == "zu") {
+                                document.getString("zuluMessage")
+                                    ?: document.getString("englishMessage")
+                                    ?: ""
+                            } else {
+                                document.getString("englishMessage")
+                                    ?: document.getString("zuluMessage")
+                                    ?: ""
+                            }
+
+                        val createdAt =
+                            document.getTimestamp("createdAt")
+
+                        notifications.add(
+                            NotificationItem(
+                                title = title,
+                                message = message,
+                                createdAt = createdAt
+                            )
+                        )
+                    }
+
+                    rvNotifications.adapter =
+                        NotificationAdapter(notifications)
+                }
             }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        listenerRegistration?.remove()
+        listenerRegistration = null
     }
 }

@@ -12,6 +12,19 @@
         android:orientation="vertical"
         android:padding="@dimen/spacing_large">
 
+        <!-- OFFLINE STATUS BANNER -->
+        <TextView
+            android:id="@+id/tvOfflineBanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="#333333"
+            android:padding="10dp"
+            android:text="No internet connection – using cached data"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
         <!-- APP NAME -->
 
         <TextView
@@ -114,17 +127,7 @@
             android:textAllCaps="false"
             android:textColor="@color/black" />
 
-        <!-- QR CHECK-IN -->
 
-        <Button
-            android:id="@+id/btnQrCheckIn"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/button_height"
-            android:layout_marginTop="@dimen/spacing_medium"
-            android:background="@drawable/bg_button_secondary"
-            android:text="@string/qr_church_checkin"
-            android:textAllCaps="false"
-            android:textColor="@color/black" />
 
         <!-- PROFILE -->
 

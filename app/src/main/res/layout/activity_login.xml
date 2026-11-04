@@ -25,11 +25,11 @@
     <!-- CHURCH LOGO -->
     <ImageView
         android:id="@+id/logoPlaceholder"
-        android:layout_width="@dimen/logo_size_small"
-        android:layout_height="@dimen/logo_size_small"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
         android:layout_marginTop="@dimen/spacing_large"
         android:contentDescription="@string/church_logo_desc"
-        android:src="@drawable/ic_logo_placeholder"
+        android:src="@drawable/shepherd_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnBack" />

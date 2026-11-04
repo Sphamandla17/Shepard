@@ -97,7 +97,6 @@
     <string name="prayer_requests">Prayer Requests</string>
     <string name="events">Events</string>
     <string name="notifications">Notifications</string>
-    <string name="qr_church_checkin">QR Church Check-in</string>
     <string name="my_profile">My Profile</string>
 
     <!-- PASTOR -->
@@ -156,11 +155,24 @@
 
     <string name="untitled_event">Untitled Event</string>
     <string name="view_event">View Event</string>
-    ```
+    <string name="default_web_client_id">1086240196864-j1mf4chsdddh0di6lnprcak20rrurm1h.apps.googleusercontent.com</string>
     <string name="upcoming_events">Upcoming Events</string>
     <string name="view_upcoming_church_events">View upcoming church events and activities.</string>
     <string name="no_upcoming_events">No upcoming events</string>
 
     <string name="bible">Bible</string>
     <string name="announcements">Announcements</string>
+    <string name="search_bible">Search Bible (e.g. Love, John 3:16)</string>
+    <string name="download_bible">Download Complete BSB Bible</string>
+    <string name="downloading_bible">Downloading Bible...</string>
+    <string name="bible_downloaded">Complete BSB Bible downloaded successfully!</string>
+    <string name="search">Search</string>
+    <string name="old_testament">Old Testament</string>
+    <string name="new_testament">New Testament</string>
+    <string name="select_book">Select Book</string>
+    <string name="select_chapter">Select Chapter</string>
+    <string name="translation_bsb">Berean Standard Bible (BSB)</string>
+    <string name="offline_bible_notice">Offline mode: Reading from local database</string>
+    <string name="previous_chapter">Previous</string>
+    <string name="next_chapter">Next</string>
 </resources>

@@ -97,7 +97,6 @@
     <string name="prayer_requests">Izicelo Zomthandazo</string>
     <string name="events">Imicimbi</string>
     <string name="notifications">Izaziso</string>
-    <string name="qr_church_checkin">Ukungena Ebandleni nge-QR</string>
     <string name="my_profile">Iphrofayela Yami</string>
 
     <!-- PASTOR -->
@@ -163,6 +162,17 @@
     <string name="no_upcoming_events">Ayikho imicimbi ezayo</string>
     <string name="bible">IBhayibheli</string>
     <string name="announcements">Izimemezelo</string>
-
-
+    <string name="search_bible">Sesha iBhayibheli (isb. Uthando, Johane 3:16)</string>
+    <string name="download_bible">Landa iBhayibheli Egcwele le-BSB</string>
+    <string name="downloading_bible">Ilanda iBhayibheli...</string>
+    <string name="bible_downloaded">Lilandelwe ngempumelelo iBhayibheli!</string>
+    <string name="search">Sesha</string>
+    <string name="old_testament">ITestamente Elidala</string>
+    <string name="new_testament">ITestamente Elisha</string>
+    <string name="select_book">Khetha Incwadi</string>
+    <string name="select_chapter">Khetha Isahluko</string>
+    <string name="translation_bsb">Berean Standard Bible (BSB)</string>
+    <string name="offline_bible_notice">Imodi engaxhunyiwe: Ukufunda kusuka ku-database</string>
+    <string name="previous_chapter">Okwangaphambilini</string>
+    <string name="next_chapter">Okulandelayo</string>
 </resources>

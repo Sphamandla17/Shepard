@@ -46,10 +46,6 @@ class AdminEventRegistrationsActivity : AppCompatActivity() {
         etSearchAttendees = findViewById(R.id.etSearchAttendees)
         rvAdminRegistrations = findViewById(R.id.rvAdminRegistrations)
 
-        // Back button
-        findViewById<ImageButton>(R.id.btnBack).setOnClickListener {
-            finish()
-        }
 
         // RecyclerView
         adapter = AdminRegistrationAdapter(filteredList)

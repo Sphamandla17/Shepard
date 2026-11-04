@@ -4,6 +4,8 @@
 
     <!-- Internet access -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:usesCleartextTraffic="true"
@@ -91,13 +93,7 @@
             android:name=".SettingsActivity"
             android:exported="false" />
 
-        <activity
-            android:name=".QrCheckinActivity"
-            android:exported="false" />
 
-        <activity
-            android:name=".QrCodeActivity"
-            android:exported="false" />
 
 
         <!-- ========================= -->
@@ -173,6 +169,22 @@
 
         <activity
             android:name=".AnnouncementsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".AdminAnnouncementsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".PastorAnnouncementsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".CreateAnnouncementActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".AnnouncementDetailsActivity"
             android:exported="false" />
 
 
